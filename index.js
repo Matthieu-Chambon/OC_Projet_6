@@ -13,14 +13,13 @@ async function init() {
     films = await get_films_from_category(category_2);
     fill_category($(".cat-2")[0], films);
 
-    let category_3 = "Musical";
+    let category_3 = "Action";
     $(".cat-3 h2").html(category_3);
     films = await get_films_from_category(category_3);
     fill_category($(".cat-3")[0], films);
 
     await get_genres();
     let category_others = $("#genres-select").val();
-    console.log(category_others);
     films = await get_films_from_category(category_others);
     fill_category($(".others")[0], films);
 
@@ -33,7 +32,6 @@ async function init() {
 }
 
 async function open_modal(film_id) {
-    console.log(film_id);
     $(".modal").show();
     $(".best-film").hide();
     $(".category").hide();
@@ -42,21 +40,42 @@ async function open_modal(film_id) {
     let response = await fetch(url);
     let film = await response.json();
 
-    console.log(film);
-
     $('.modal h2').html(film.original_title);
     $('.modal #year').html(film.year);
     $('.modal #genres').html(film.genres.join(", "));
+    let rate = film.rated
+    if (rate == null || rate == "Not rated or unkown rating"){
+        rate = "Non renseigné";
+    }
+    $('.modal #rated').html(rate);
     $('.modal #duration').html(film.duration + " minutes");
     $('.modal #countries').html("(" + film.countries.join("/") + ")");
     $('.modal #score').html(film.imdb_score);
-    // $('.modal #income').html("$" + film.worldwide_gross_income.toString());
+    $('.modal #income').html(format_currency(film.worldwide_gross_income));
     $('.modal #directors').html(film.directors.join(", "));
 
     $('.modal img').attr('src', film.image_url);
+    $('.modal img')[0].onerror = function() {
+        this.src = 'https://picsum.photos/600/800';
+    };
+    
     $('.modal #description').html(film.long_description);
     $('.modal #actors').html(film.actors.join(", "));
 
+}
+
+function format_currency(value) {
+    if (value == null) {
+        return "Non renseigné";
+    } else if (value >= 1_000_000_000) {
+        return `$${(value / 1_000_000_000).toFixed(1)}B`;
+    } else if (value >= 1_000_000) {
+        return `$${(value / 1_000_000).toFixed(1)}M`;
+    } else if (value >= 1_000) {
+        return `$${(value / 1_000).toFixed(1)}K`;
+    } else {
+        return `$${value}`;
+    }
 }
 
 async function close_modal(){
@@ -81,7 +100,6 @@ async function fill_best_film() {
     $(".best-film .details p").html(best_film.description);
     $(".best-film button")[0].addEventListener("click", function () {
         open_modal(best_film.id);
-        console.log("click");
     });
 }
 
@@ -125,6 +143,9 @@ async function fill_category(category, films){
 
         let film_img = document.createElement("img");
         film_img.src = film.image_url;
+        film_img.onerror = function() {
+            this.src = 'https://picsum.photos/600/600';
+        };
         film_div.appendChild(film_img);
 
         let strip_div = document.createElement("div");
@@ -165,7 +186,6 @@ async function get_genres(){
 }
 
 function showMore(category) {
-    console.log(category);
     $(`.${category} .film`).show(); 
     $(`.${category} .show-more-btn`).html("Voir moins");
     $(`.${category} .show-more-btn`).attr("onclick", `showLess("${category}")`);
