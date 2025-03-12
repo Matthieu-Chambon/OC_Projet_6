@@ -1,0 +1,351 @@
+/* :root {
+
+} */
+
+html {
+    display: flex;
+    background-color: rgb(0, 18, 25);
+    color: rgb(255, 255, 255);
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+h2{
+    margin: 1vw;
+    font-size: 5vw;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 820px) { /* Tablette */
+
+}
+
+@media screen and (max-width: 480px) { /* Téléphone */
+    h2{
+        font-size: 10vw;
+        text-align: center;
+    }
+}
+
+/* x----- Best film -----x */
+
+.best-film h3{
+    font-size: 3vw;
+}
+
+.best-film p{
+    font-size: 2vw;
+}
+
+.best-film .content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-style: solid;    
+}
+
+.best-film .details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 1vw;
+}
+
+.best-film .details button{
+    align-self: flex-end;
+    margin: 0.1vw;
+    padding: 0.1vw;
+
+    background-color: red;
+    width: 8vw;
+    height: 3vw;
+    border-radius: 1vw;
+
+    color: white;
+    font-size: 1.5vw;
+}
+
+
+.best-film img{
+    display: block;
+    margin: 10px;
+    width: 30%;
+    height: auto;
+}
+
+@media screen and (max-width: 820px) { /* Tablette */
+
+}
+
+@media screen and (max-width: 480px) { /* Téléphone */
+    .best-film-content {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .best-film img{
+        width: 100%;
+        height: 100vw;
+        object-fit: cover;
+    }
+
+    .best-film h3{
+        font-size: 8vw;
+        margin: 1vw
+    }
+    
+    .best-film p{
+        font-size: 4vw;
+    }
+
+    .best-film .details button{
+        align-self: flex-end;
+        margin: 0.1vw;
+        padding: 0.1vw;
+    
+        background-color: red;
+        width: 30vw;
+        height: 10vw;
+        border-radius: 6vw;
+    
+        color: white;
+        font-size: 6vw;
+    } 
+}
+
+/* x----- Categories -----x */
+
+.category .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1vw;
+}
+
+.category .film{
+    position: relative;
+    margin-bottom: 2vw;
+    width: 32%;
+}
+
+.category img{
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.category .strip{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    top: 30%;
+}
+
+.category h4{
+    font-size: 3vw;
+    margin: 1vw;
+    padding: none;
+}
+
+.category .details-btn{
+    align-self: flex-end;
+    margin: 10px;
+    padding: 10px;
+
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    width: 80px;
+    border-radius: 15px;
+}
+
+.category .show-more-btn {
+    display: none;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 820px) { /* Tablette */
+
+    .category .film{
+        width: 49%;
+    
+    }
+
+    .category h4{
+        font-size: 4vw;
+    }
+
+    .category .film:nth-child(n+5) {
+        display: none;
+    }
+
+    .category .show-more-btn {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) { /* Téléphone */
+
+    .category .film{
+        width: 100%;
+    }
+
+    .category h4{
+        font-size: 7vw;
+    }
+
+    .category .film:nth-child(n+3) {
+        display: none;
+    }
+    
+    .category .show-more-btn {
+        display: block;
+    }
+}
+
+/* x----- Others -----x */
+
+.others .title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#genres-select{
+    margin: 1vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+    height: fit-content;
+}
+
+/* x----- Modal -----x */
+
+.modal {
+    display: none;
+    flex-direction: column;
+    padding: 2vw;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.modal .top-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    font-size: 1.2vw;
+}
+
+.modal h2{
+    margin: 0;
+}
+
+.modal img{
+    display: flex;
+
+    width: 25%;
+    height: auto;
+}
+
+.modal .bottom-content{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 0.8vw;
+    text-align: justify;
+}
+
+.modal #close-cross{
+    display: none;
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    margin: 1vw;
+    padding: none;
+    width: 12vw;
+    height: 12vw;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    font-size: 12vw;
+    color: white;
+    font-weight: bold;
+}
+
+.modal #close-btn{
+    display: flex;
+    margin: 1vw;
+    padding: 0.5vw;
+
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    background-color: red;
+    color: white;
+    font-size: 1vw;
+    font-weight: bold;
+    width: 5vw;
+    border-radius: 15px;
+    
+
+}
+
+@media screen and (max-width: 820px) { /* Tablette */
+    .modal {
+        position: absolute;
+        height: max-content;
+    }
+
+    .modal .top-content{
+        flex-direction: column;
+        font-size: 3vw;
+    }
+
+    .modal h2{
+        font-size: 7vw;
+    }
+
+    .modal .bottom-content{
+        font-size: 3vw;
+    }
+
+    .modal img{
+        margin: 2vw;
+        width: 90%;
+        align-self: center;
+    }
+
+    .modal #close-cross{
+        display: flex;
+    }
+
+    .modal #close-btn{
+       display: none; 
+    }
+}

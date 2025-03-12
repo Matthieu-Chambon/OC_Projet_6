@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+    <div class="modal">
+        <div class="top-content">
+            <button id="close-cross" onclick="close_modal()">&times;</button>
+            <div class="general-infos">
+                <h2 id="title">A Fighting Season</h2>
+                <p><span id="year">2015</span> - <span id="genres">Drama, News, War</span></p>
+                <p><span id="duration">117 minutes</span> <span id="countries">(USA/UK)</span></p>
+                <p><strong>IMDB score : </strong><span id="score">8.1/10</span></p>
+                <p><strong>Recettes au box-office : </strong><span id="income">$48.2m</span></p>
+                <p><strong>Réalisé par :</strong></p>
+                <span id="directors">Ethan Coen, Joel Coen</span>
+            </div>
+            <img src="https://picsum.photos/182/268" alt="Affiche du film">
+        </div>
+        <div class="bottom-content">
+            <p id="description">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra semper sed, hac nisi hendrerit massa
+                integer ornare adipiscing. Amet a nisl vulputate adipiscing,habitasse ullamcorper. Fames malesuada
+                placerat purus sem donec. Fames congue ex ullamcorper; venenatis torquent elit.Posuere efficitur euismod
+                fusce, nascetur hac suspendisse volutpat. Enim torquent non semper dolor ante aliquet nisi elementum.
+            </p>
+            <p>Avec :</p>
+            <p id="actors">
+                Andrew Blazensky, Carrie Paff, Clayne Crawford, JB Majors, Jim Hechim, L.A. Cohen, Lew Temple, Mathew
+                Lipisko, Melissa O'Keefe, Mikael James, Stephanie Heiner
+            </p>
+            <button id="close-btn" onclick="close_modal()">Fermer</button>
+        </div>
+    </div>
+
+    <div class="title">
+        <h1>
+            JustStreamIt - Vidéos à la demande
+        </h1>
+    </div>
+
+
+    <div class="best-film">
+        <h2>
+            Meilleur film
+        </h2>
+
+        <div class="content">
+            <img src="https://picsum.photos/400/600" alt="Affiche du meilleur film">
+
+            <div class="details">
+                <h3>Lorem ipsum odor</h3>
+                <p>
+                    Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra semper sed, hac nisi hendrerit massa
+                    integer ornare adipiscing. Amet a nisl vulputate adipiscing, habitasse ullamcorper. Fames malesuada
+                    placerat purus sem donec. Fames congue ex ullamcorper; venenatis torquent elit. Posuere efficitur
+                    euismod fusce, nascetur hac suspendisse volutpat. Enim torquent non semper dolor ante aliquet nisi
+                    elementum.
+                </p>
+                <button>Détails</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="category best-rated">
+        <h2>
+            Films les mieux notés
+        </h2>
+        <div class="content">
+            <!-- <div class="film">
+                <img src="https://picsum.photos/500/500" alt="Category film">
+                <div class="strip">
+                    <h4>Lorem ipsum odor</h4>
+                    <button class="details-btn" onclick="myFunction()">Détails</button>
+                </div>
+            </div> -->
+        </div>
+        <button class="show-more-btn" onclick="showMore('best-rated')">Voir plus</button>
+    </div>
+
+    <div class="category cat-2">
+        <h2>
+            Categorie 2
+        </h2>
+        <div class="content">
+
+        </div>
+        <button class="show-more-btn" onclick="showMore('cat-2')">Voir plus</button>
+    </div>
+
+    <div class="category cat-3">
+        <h2>
+            Categorie 3
+        </h2>
+        <div class="content">
+
+        </div>
+        <button class="show-more-btn" onclick="showMore('cat-3')">Voir plus</button>
+    </div>
+
+    <div class="category others">
+        <div class="title">
+            <h2>
+                Autres
+            </h2>
+            <select id="genres-select">
+            </select>
+        </div>
+
+        <div class="content">
+            
+        </div>
+        <button class="show-more-btn" onclick="showMore('others')">Voir plus</button>
+    </div>
+
+
+
+</body>
+
+</html>
